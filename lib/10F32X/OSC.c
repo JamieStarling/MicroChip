@@ -23,7 +23,6 @@ DEALINGS IN THE SOFTWARE.
 #include <stdint.h>
 
 
-uint8_t cpuFreqSelect(uint16_t speed);
 
 
 uint8_t cpuFreqSelect(uint16_t speed) {
@@ -83,4 +82,21 @@ switch (speed)
         
 }
 
+}
+
+void clockReferenceOut ( int8_t ClockOut)
+/* Enables or Disables the Reference Clock out on PIN CLKR (PIN A.2)
+ * 1 enable 
+ * 0 (anything else) disable 
+ */
+{  
+    if (ClockOut == 1)
+    {
+        CLKRCONbits.CLKROE = 1; 
+    }
+    else
+    {
+        CLKRCONbits.CLKROE = 0; 
+    }
+    
 }
