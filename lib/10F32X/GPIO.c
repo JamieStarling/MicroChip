@@ -33,11 +33,10 @@ Example: digitalWrite (2,0) - sets PIN A.2 Low
 
 #include <xc.h>
 #include <stdint.h>
+#include "GPIO.h"
 
 
-int8_t pinDirection(int8_t pin, int8_t direction);
-int8_t digitalWrite (int8_t pin, int8_t value);
-int8_t digitalRead (int8_t pin);
+
 
 
 int8_t digitalWrite (int8_t pin, int8_t value)
@@ -157,7 +156,7 @@ int8_t digitalRead (int8_t pin)
         
     switch (pin)
     {
-         case 0 : //Port RA.0
+        case 0 : //Port RA.0
              return (PORTAbits.RA0);
         
         case 1: //Port RA.1
@@ -174,3 +173,35 @@ int8_t digitalRead (int8_t pin)
         
     }        
 }
+
+uint8_t enableWPUA (int8_t pin)
+/*Enables Weak Pull ups on port pin - input pin number*/
+{
+	OPTION_REGbits.nWPUEN = 0; //Enable WeakPull up in option register
+	
+	switch (pin)
+	{
+		case 0 : //Port RA.0
+             WPUAbits.WPUA0 = 1;
+        
+        case 1: //Port RA.1
+            WPUAbits.WPUA1 = 1;
+            
+        case 2: //Port RA.2
+            WPUAbits.WPUA2 = 1;
+            
+        case 3 : //Port RA.3
+            WPUAbits.WPUA3 = 1;
+            
+        default : //Value out of range - return 255
+        return 0xFF;
+        
+	
+	
+	
+	}
+	
+	
+	
+}	
+	
