@@ -147,7 +147,7 @@ int8_t pinDirection(int8_t pin, int8_t direction)
 }
 
 
-int8_t digitalRead (int8_t pin)
+uint8_t digitalRead (int8_t pin)
 /*
  * Reads the current input value of a pin - returns value 
  * Returns value 0Xff if out of range

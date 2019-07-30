@@ -25,7 +25,8 @@ DEALINGS IN THE SOFTWARE.
 
 int8_t pinDirection(int8_t pin, int8_t direction);
 int8_t digitalWrite (int8_t pin, int8_t value);
-int8_t digitalRead (int8_t pin);
+uint8_t digitalRead (int8_t pin);
+uint8_t enableWPUA (int8_t pin);
 
 #endif	/* GPIO_H */
 
