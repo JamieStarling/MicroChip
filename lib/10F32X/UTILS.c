@@ -37,7 +37,7 @@ uint8_t deBounce(uint8_t pin, uint8_t value)
 {
     if (value == 1)
     {
-        __delay_ms (20);  //Wait 20ms to test again
+        __delay_ms (debounceTime);  //Wait time to test again
         if (digitalRead (pin))
         {
             return 1;
@@ -49,7 +49,7 @@ uint8_t deBounce(uint8_t pin, uint8_t value)
     }
     else
     {
-        __delay_ms (20);   //Wait 20ms to test again
+        __delay_ms (debounceTime);   //Wait time to test again
         if (!digitalRead (pin))
         {
             return 1;

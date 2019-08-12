@@ -22,6 +22,8 @@ DEALINGS IN THE SOFTWARE.
 #ifndef UTILS_H
 #define	UTILS_H
 
+#define debounceTime  50
+
 uint8_t deBounce(uint8_t pin, uint8_t value);
 
 #endif	/* UTILS_H */
