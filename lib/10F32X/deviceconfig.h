@@ -38,5 +38,16 @@ DEALINGS IN THE SOFTWARE.
 #pragma config WRT = OFF    // Flash Memory Self-Write Protection
 
 
+#define ON  1
+#define OFF 0
+#define TRUE 1
+#define FALSE 0
+#define HIGH 1
+#define LOW 0
+
+
+
+
+
 //Used to calculate the delay time - Change depending on processor Speed
 #define _XTAL_FREQ 8000000  //8 MHz (default after Reset)
