@@ -28,6 +28,7 @@ DEALINGS IN THE SOFTWARE.
 
 
 void pwmOut(uint8_t pin, uint16_t dutyCycle);
+void setPWMDutyCycle (uint8_t pin, uint8_t duty);
 
 
 

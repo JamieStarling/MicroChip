@@ -133,8 +133,23 @@ const uint16_t PIN_TO_PORT_READ_REGISTER_PGM[] =
 /******************PWM Defines used with pwm.c*/
 #if _XTAL_FREQ == 8000000 /** 8MHz = PWM Frequency 19.61 kHz 8bits Duty*/
 #define PWM1_ENABLE  PR2 = 0x65;T2CONbits.T2CKPS = 0b00;T2CONbits.TMR2ON = 0x01;PWM1CONbits.PWM1OE = 0x01;PWM1CONbits.PWM1EN = 0x01;
+#define PWM2_ENABLE  PR2 = 0x65;T2CONbits.T2CKPS = 0b00;T2CONbits.TMR2ON = 0x01;PWM2CONbits.PWM2OE = 0x01;PWM2CONbits.PWM2EN = 0x01;
 #endif
 
 #if _XTAL_FREQ == 16000000  /**16Mhz = PWM Frequency  15.7 kHz 10bits  Duty*/
 #define PWM1_ENABLE PR2 = 0xFF;T2CONbits.T2CKPS = 0b00;T2CONbits.TMR2ON = 0x01;PWM1CONbits.PWM1OE = 0x01;PWM1CONbits.PWM1EN = 0x01;
+#define PWM2_ENABLE PR2 = 0xFF;T2CONbits.T2CKPS = 0b00;T2CONbits.TMR2ON = 0x01;PWM2CONbits.PWM2OE = 0x01;PWM2CONbits.PWM2EN = 0x01;
 #endif
+
+
+const uint16_t PIN_TO_PWM_DUTY_LOW_REGISTER_PGM[] =
+{
+	 (uint16_t) &PWM1DCL,
+	 (uint16_t) &PWM2DCL,	
+};
+
+const uint16_t PIN_TO_PWM_DUTY_HIGH_REGISTER_PGM[] =
+{
+	 (uint16_t) &PWM1DCH,
+	 (uint16_t) &PWM2DCH,	
+};

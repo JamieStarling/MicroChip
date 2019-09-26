@@ -26,7 +26,41 @@ DEALINGS IN THE SOFTWARE.
 #include "pwm.h"
 
 
+/*Enables a PIN for PWM output*/
 void pwmOut(uint8_t pin, uint16_t dutyCycle)
 {
     PWM1_ENABLE
+    PWM2_ENABLE
+    
+    setPWMDutyCycle (pin, dutyCycle);
+    
+}
+
+
+
+
+/*
+ * Sets the duty cycle of the PWM Output input is a value from 0 - 100 percent
+*/
+void setPWMDutyCycle (uint8_t pin, uint8_t duty)
+//Get the dutycycle register for the selected pin...
+{
+    
+    //Compute the Duty Cycle Based on PR2
+    //Dutyvalue = (desired% / 100) * 4(PR2 Value + 1)
+    uint16_t dutyValue;            
+    dutyValue = duty * (4*(PR2+1)) / 100;
+    
+  //Vars for the registers. 
+    uint8_t *regDutyCycleLow_ptr, *regDutyCycleHigh_ptr;
+           
+     //Get the low duty Cycle  Register
+  regDutyCycleLow_ptr = (uint8_t*) PIN_TO_PWM_DUTY_LOW_REGISTER_PGM[pin];
+    
+   //Get the high duty Cycle Register
+  regDutyCycleHigh_ptr = (uint8_t*) PIN_TO_PWM_DUTY_HIGH_REGISTER_PGM[pin];
+    
+    
+    *regDutyCycleLow_ptr =  ((dutyValue & 0b11) << 0x06);  //Get the LSB
+    *regDutyCycleHigh_ptr = (dutyValue >> 0x02);    //Get the MSB
 }
