@@ -26,6 +26,8 @@ DEALINGS IN THE SOFTWARE.
 #include <xc.h>
 #include <stdint.h>
 
+#ifndef DEVICECONFIG_H
+#define	DEVICECONFIG_H
 
 #pragma config FOSC = INTOSC  // Oscillator Selection 
 #pragma config BOREN = ON    // Brown-out Reset
@@ -153,3 +155,5 @@ const uint16_t PIN_TO_PWM_DUTY_HIGH_REGISTER_PGM[] =
 	 (uint16_t) &PWM1DCH,
 	 (uint16_t) &PWM2DCH,	
 };
+
+#endif	/* DEVICECONFIG_H */
