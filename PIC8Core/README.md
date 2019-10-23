@@ -6,6 +6,7 @@ Please Visit - https://gizmofoundry.com/kb/pic8-core/ for more information
 Change Log
 0.1.0 - Initial Release
 0.1.1 - Fix to 10F322 header File
+0.2.0 - Added 16F15313 MCU - GPIO 
 
 
 
